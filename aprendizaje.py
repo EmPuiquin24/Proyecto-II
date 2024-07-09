@@ -9,6 +9,7 @@ from sklearn import datasets
 # La primera clave asociada al diccionario es una lista de listas
 
 digits = datasets.load_digits()
+print(digits)
 
 # Cada lista dentro de la lista de listas es una matriz aplanada
 print("\nLa primera matriz aplanada:")
@@ -17,4 +18,11 @@ print(digits["data"][0])
 print("\nLa última matriz aplanada:")
 print(digits["data"][-1])
 
-# La siguiente clave es "target" (se pronuncia a algo parecido a taergoet), 
+# La siguiente clave es "target" (se pronuncia a algo parecido a taergoet).
+# Esto yo lo entiendo como los elementos en el que el dataset es analizado
+print(digits["target"][1])
+
+# Siguiente clave: images
+# Una lista de matrices
+
+print(digits["images"])
