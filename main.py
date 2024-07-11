@@ -200,5 +200,5 @@ distancias_promedio.sort()
 distancia_menor, digito_clasificado_promedio = distancias_promedio[0]
 
 print(f"Soy la inteligencia artificial versión 2, y he detectado que el dígito ingresado corresponde al número {digito_clasificado_promedio}")
-
+print()
 
