@@ -29,7 +29,7 @@ for digito in range(10):
     # Explicación: Se toma la fila de cada de matriz dentro imagenes_digito, y luego se "itera" y se promedia todo en base a una misma columna
     # Al final, el return será una matriz donde la primera fila representa ese promedio de las primeras filas, la segunda ...
     
-    matriz_promedio_redimensionada = cv2.resize(matriz_promedio, (8, 8)).astype(int) # Se redimensiona esa promedio a 8 filas y 8 columnas
+    matriz_promedio_redimensionada = cv2.resize(matriz_promedio, (8, 8)) # Se redimensiona esa promedio a 8 filas y 8 columnas
     #Esto no requiere más explicación
 
     matrices_promedio_redimensionadas.append(matriz_promedio_redimensionada) # Se agrega a "matrices_promedio_redimensionadas"
@@ -106,12 +106,12 @@ def calcular_distancia_euclidiana(imagen1, imagen2): # Creación de una función
 
 distancias = []
 for i, imagen_dataset in enumerate(imagenes):
-    imagen_dataset_redimensionada = cv2.resize(imagen_dataset, (8, 8)).astype(int)
+    imagen_dataset_redimensionada = cv2.resize(imagen_dataset, (8, 8))
     distancia = calcular_distancia_euclidiana(imagen_pequeña, imagen_dataset_redimensionada)
     distancias.append((distancia, etiquetas[i]))
 
 # Ordenar las distancias y obtener las 3 más pequeñas
-distancias.sort()   
+distancias.sort()       
 dígitos_más_parecidos = distancias[:3]
 
 
