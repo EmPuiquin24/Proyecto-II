@@ -15,7 +15,6 @@ imagenes = digits.images
 etiquetas = digits.target
 
 
-
 # ---------- EN TODO ESTE BLOQUE, SE BUSCA MEDIANTE EL FOR, AÑADIR POR ORDEN (0 al 10) LAS MATRICES Y PROMEDIARLAS Y ESCALARLAS ----------  
 
 matrices_promedio_redimensionadas = [] # SE INICIALIZA LA LISTA QUE CONTENDRÁ A LAS MATRICES PROMEDIO REDIMENSIONADAS
@@ -95,7 +94,6 @@ print()
 print("-"*50)
 print()
 
-
 # --------------------------------- FIN DE LA PARTE C ----------------------------------------
 
 
@@ -115,8 +113,8 @@ for i, imagen_dataset in enumerate(imagenes):
 distancias.sort()       
 dígitos_más_parecidos = distancias[:3]
 
-
 # --------------------------------- FIN DE LA PARTE D ---------------------------------------- 
+
 
 
 # --------------------------------- PARTE E ---------------------------------------- 
@@ -131,6 +129,7 @@ print()
 
 
 # --------------------------------- FIN DE LA PARTE E ---------------------------------------- 
+
 
 
 # --------------------------------- PARTE F ---------------------------------------- 
@@ -183,8 +182,9 @@ print()
 
 print(f"Soy la inteligencia artificial, y he detectado que el dígito ingresado corresponde al número {dígito_clasificado}")          
 
-
 # --------------------------------- FIN DE LA PARTE F ---------------------------------------- 
+
+
 
 # --------------------------------- PARTE G ----------------------------------------
 
