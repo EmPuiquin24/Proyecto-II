@@ -35,13 +35,16 @@ for digito in range(10):
     matrices_promedio_redimensionadas.append(matriz_promedio_redimensionada) # Se agrega a "matrices_promedio_redimensionadas"
     # Esto mucho menos :v
 
-
+print()
 digito_seleccionado = int(input("Ingrese el dígito del cual desea ver la matriz promedio (0-9): "))
-
+print("-"*50)
+print()
 matriz_promedio_seleccionada = matrices_promedio_redimensionadas[digito_seleccionado]
-
 print(f"Matriz Promedio Redimensionada del Dígito {digito_seleccionado}:")
+print()
 print(matriz_promedio_seleccionada)
+print()
+print("-"*50)
 
 # --------------------------------- FIN DE LA PARTE A----------------------------------------
 
@@ -72,7 +75,7 @@ mostrar_matrices_promedio(matrices_promedio_redimensionadas) # Acá se llama a l
 
 # --------------------------------- PARTE C ---------------------------------------- 
 
-imagen = cv2.imread("datasets/num_2.jpeg", cv2.IMREAD_GRAYSCALE) # Se carga la imagen
+imagen = cv2.imread("datasets/num_0.jpeg", cv2.IMREAD_GRAYSCALE) # Se carga la imagen
 imagen_pequeña = cv2.resize(imagen,(8,8)) # La re-escalamos a una matriz de 8x8
 
 # Acá invertimos los valores
@@ -83,7 +86,13 @@ for i in range(8):
         imagen_pequeña[i][j] = imagen_pequeña[i][j]/255*16
 
 print()
+print("Imagen pequeña: ")
+print()
 print(imagen_pequeña)
+print()
+print("-"*50)
+print()
+
 
 # --------------------------------- FIN DE LA PARTE C ----------------------------------------
 
@@ -115,6 +124,10 @@ dígitos_más_parecidos = distancias[:3]
 print("Los 3 dígitos más parecidos son:")
 for distancia, dígito in dígitos_más_parecidos:
     print(f"Dígito: {dígito}, Distancia: {distancia}")
+print()
+print("-"*50)
+print()
+
 
 # --------------------------------- FIN DE LA PARTE E ---------------------------------------- 
 
