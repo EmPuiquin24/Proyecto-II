@@ -75,7 +75,7 @@ mostrar_matrices_promedio(matrices_promedio_redimensionadas) # Acá se llama a l
 
 # --------------------------------- PARTE C ---------------------------------------- 
 
-imagen = cv2.imread("datasets/num_0.jpeg", cv2.IMREAD_GRAYSCALE) # Se carga la imagen
+imagen = cv2.imread("datasets/num_1.jpeg", cv2.IMREAD_GRAYSCALE) # Se carga la imagen
 imagen_pequeña = cv2.resize(imagen,(8,8)) # La re-escalamos a una matriz de 8x8
 
 # Acá invertimos los valores
@@ -122,8 +122,9 @@ dígitos_más_parecidos = distancias[:3]
 # --------------------------------- PARTE E ---------------------------------------- 
 
 print("Los 3 dígitos más parecidos son:")
-for distancia, dígito in dígitos_más_parecidos:
-    print(f"Dígito: {dígito}, Distancia: {distancia}")
+for index, (distancia, dígito) in enumerate(dígitos_más_parecidos):
+    print(f"{index}. Dígito: {dígito}, Distancia: {distancia}")
+
 print()
 print("-"*50)
 print()
@@ -135,7 +136,7 @@ print()
 # --------------------------------- PARTE F ---------------------------------------- 
 
 # Clasificación del nuevo dígito
-targets = [dígito for _, dígito in dígitos_más_parecidos]
+targets = [dígito for _, dígito in distancias[:10]]
 
 # Contar manualmente las ocurrencias de cada dígito
 conteos = {}
@@ -148,25 +149,47 @@ for target in targets:
 # Determinar el dígito más común
 dígito_clasificado = None
 max_conteo = 0
+empate = []
+
+# Acá se determina el dígito más común, además, la lista "empate" solo debería ser == 1 si solo hay un número mayoritario
 for dígito, conteo in conteos.items():
     if conteo > max_conteo:
         max_conteo = conteo
         dígito_clasificado = dígito
+        empate = [dígito]
+    elif conteo == max_conteo:
+        empate.append(dígito)
+        
 
+dig_mas_parecidos = distancias[:10]
 
-# Verificar si hay 2 o 3 dígitos iguales
-if max_conteo >= 2:
-    print(f"Soy la inteligencia artificial, y he detectado que el dígito ingresado corresponde al número {dígito_clasificado}")
-else:
-    # Si los 3 targets son diferentes, tomamos el dígito con la menor distancia como clasificación
-    dígito_clasificado = dígitos_más_parecidos[0][1]
-    print(f"Soy la inteligencia artificial, y he detectado que el dígito ingresado corresponde al número {dígito_clasificado}")
+# Esto se inicializa si empate es mayor a 1, eso quiere decir que hubo más de un número con el mismo máximo número de ocurrencias
+
+if len(empate) > 1:
+        # Buscar el desempate considerando más distancias
+        for distancia, dígito in distancias[10:]:
+            dig_mas_parecidos.append((distancia, dígito)) # Se agrega a la lista de dig más parecidos
+
+            if dígito in empate:
+                dígito_clasificado = dígito
+                break # Se rompe si se encuentra un dígito que está en la lista de los número empatados (porque uno ya sería mayor que el otro)
+
+for index, (distancia, dígito) in enumerate(dig_mas_parecidos):
+    print(f"{index}. Dígito: {dígito}, Distancia: {distancia}")
+
+print()
+print("-"*50)
+print()
+
+print(f"Soy la inteligencia artificial, y he detectado que el dígito ingresado corresponde al número {dígito_clasificado}")          
 
 
 # --------------------------------- FIN DE LA PARTE F ---------------------------------------- 
 
 # --------------------------------- PARTE G ----------------------------------------
+
 # Parte g: Comparación con los promedios generados en el inciso a)
+
 distancias_promedio = []
 for i, matriz_promedio in enumerate(matrices_promedio_redimensionadas):
     distancia = calcular_distancia_euclidiana(imagen_pequeña, matriz_promedio)
