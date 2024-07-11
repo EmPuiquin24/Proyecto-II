@@ -35,6 +35,8 @@ for digito in range(10):
     matrices_promedio_redimensionadas.append(matriz_promedio_redimensionada) # Se agrega a "matrices_promedio_redimensionadas"
     # Esto mucho menos :v
 
+
+print()
 print()
 digito_seleccionado = int(input("Ingrese el dígito del cual desea ver la matriz promedio (0-9): "))
 print("-"*50)
@@ -98,7 +100,6 @@ print()
 
 
 
-
 # --------------------------------- PARTE D ---------------------------------------- 
 
 def calcular_distancia_euclidiana(imagen1, imagen2): # Creación de una función para ya no hacer lo mismo Bv, además de que es más entendible
@@ -116,7 +117,6 @@ dígitos_más_parecidos = distancias[:3]
 
 
 # --------------------------------- FIN DE LA PARTE D ---------------------------------------- 
-
 
 
 # --------------------------------- PARTE E ---------------------------------------- 
